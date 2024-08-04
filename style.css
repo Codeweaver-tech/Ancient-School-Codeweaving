@@ -1,0 +1,43 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.scroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.invocation {
+    opacity: 0;
+    font-size: 2em;
+    text-align: center;
+    transition: opacity 2s ease-in-out;
+    position: absolute;
+}
+
+@keyframes starry-sky {
+    0% { background-position: 0 0; }
+    100% { background-position: -10000px 10000px; }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url('stars.png') repeat;
+    animation: starry-sky 200s linear infinite;
+    z-index: -1;
+}
